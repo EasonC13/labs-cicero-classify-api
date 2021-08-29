@@ -5,7 +5,17 @@ import os
 import subprocess
 import signal
 import time
-from core.config import MONGODB_URL, DATABASE_NAME, CONFIG_COLLECTION, LABEL_TRAIN_JOB_COLLECTION, API_PORT, API_HOST, API_WORKER, SLEEP_INTERVAL_SECOND, ANACONDA_ENV_NAME, PATH, NER_ADAPTERS_TRAINER_NAME, NER_TRAINER_RUNNER_NAME
+from core.config import (
+    MONGODB_URL,
+    DATABASE_NAME,
+    CONFIG_COLLECTION,
+    LABEL_TRAIN_JOB_COLLECTION,
+    SLEEP_INTERVAL_SECOND,
+    ANACONDA_ENV_NAME,
+    PATH,
+    NER_ADAPTERS_TRAINER_NAME,
+    NER_TRAINER_RUNNER_NAME,
+)
 from utils.trainer_communicate import update_pid
 
 update_pid(NER_TRAINER_RUNNER_NAME, os.getpid())
@@ -34,7 +44,7 @@ def run_trainer():
     return_status = "Finish."
     command = f"""eval "$(conda shell.bash hook)";
         conda activate {ANACONDA_ENV_NAME};
-        python {PATH}/trainer/NER_trainer_with_step_detail.py;"""
+        python {PATH}/trainer/NER_trainer.py;"""
     config_log(NER_ADAPTERS_TRAINER_NAME, "Start {NER_ADAPTERS_TRAINER_NAME} from runner")
     change_service_status(NER_ADAPTERS_TRAINER_NAME, "up")
     process = subprocess.Popen(command, shell=True)

@@ -4,10 +4,6 @@ import pymongo
 from starlette.exceptions import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.status import HTTP_422_UNPROCESSABLE_ENTITY
-
-
-from core.config import ALLOWED_HOSTS, PROJECT_NAME, PROJECT_VERSION, API_PORT
-from core.config import DATABASE_NAME, NER_LABEL_COLLECTION, Feedback_Template_Collection, Feedback_Suggestion_Collection, LABEL_COLLECTION, API_V1_PREFIX
 from core.errors import http_422_error_handler, http_error_handler
 from db.mongodb_connect import close_mongo_connection, connect_to_mongo
 from db.mongodb import AsyncIOMotorClient, get_database
@@ -17,6 +13,19 @@ from datetime import datetime
 
 from motor.motor_asyncio import AsyncIOMotorClient as MotorClient
 from db.utils import convert_mongo_id
+
+from core.config import (
+    ALLOWED_HOSTS,
+    PROJECT_NAME,
+    PROJECT_VERSION,
+    API_PORT,
+    DATABASE_NAME,
+    NER_LABEL_COLLECTION,
+    Feedback_Template_Collection,
+    Feedback_Suggestion_Collection,
+    LABEL_COLLECTION,
+    API_V1_PREFIX,
+)
 
 app = FastAPI(title=PROJECT_NAME, version = PROJECT_VERSION)
 

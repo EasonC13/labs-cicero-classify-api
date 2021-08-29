@@ -4,9 +4,17 @@ from typing import Optional
 
 from pydantic import BaseModel
 
-from core.config import ALLOWED_HOSTS, PROJECT_NAME, PROJECT_VERSION, API_PORT
-from core.config import DATABASE_NAME, NER_LABEL_COLLECTION, Feedback_Template_Collection, Feedback_Suggestion_Collection, LABEL_COLLECTION
-
+from core.config import (
+    ALLOWED_HOSTS,
+    PROJECT_NAME,
+    PROJECT_VERSION,
+    API_PORT,
+    DATABASE_NAME,
+    NER_LABEL_COLLECTION,
+    Feedback_Template_Collection,
+    Feedback_Suggestion_Collection,
+    LABEL_COLLECTION,
+)
 from db.mongodb import AsyncIOMotorClient, get_database
 import asyncio
 from typing import Any, Dict, AnyStr, List, Union

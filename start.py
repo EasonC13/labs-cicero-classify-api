@@ -2,11 +2,21 @@ import os
 import subprocess
 import signal
 import time
-from core.config import MONGODB_URL, DATABASE_NAME, CONFIG_COLLECTION, LABEL_TRAIN_JOB_COLLECTION, API_PORT, API_HOST, API_WORKER, SLEEP_INTERVAL_SECOND, ANACONDA_ENV_NAME, PATH, MONGODB_PATH, MONGODB_PORT
+from core.config import (
+    API_PORT,
+    API_HOST,
+    API_WORKER,
+    SLEEP_INTERVAL_SECOND,
+    ANACONDA_ENV_NAME,
+    PATH,
+    MONGODB_PORT,
+    MONGODB_PATH,
+    HOST_A_MONGODB,
+    MONGODB_HOST,
+)
 
-MONGODB_HOST = "localhost"
 slient_commands = [
-    f"mongod --port {MONGODB_PORT} --bind_ip {MONGODB_HOST} --dbpath {MONGODB_PATH}",
+    f"mongod --port {MONGODB_PORT} --bind_ip {MONGODB_HOST} --dbpath {MONGODB_PATH}" if HOST_A_MONGODB else "",
 ]
     
 commands = [
@@ -24,15 +34,17 @@ commands = [
 processes = []
 
 for command in slient_commands:
-    print(command, end = "\n---\n")
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
-    processes.append(process)
+    if command != "":
+        print(command, end = "\n---\n")
+        process = subprocess.Popen(command, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+        processes.append(process)
 
 
 for command in commands:
-    print(command, end = "\n---\n")
-    process = subprocess.Popen(command, shell=True)
-    processes.append(process)
+    if command != "":
+        print(command, end = "\n---\n")
+        process = subprocess.Popen(command, shell=True)
+        processes.append(process)
 
 
 while True:

@@ -1,5 +1,10 @@
 from db.mongodb import AsyncIOMotorClient, get_database
-from core.config import MONGODB_URL, DATABASE_NAME, CONFIG_COLLECTION, NER_ADAPTERS_TRAINER_NAME
+from core.config import (
+    MONGODB_URL,
+    DATABASE_NAME,
+    CONFIG_COLLECTION,
+    NER_ADAPTERS_TRAINER_NAME,
+)
 from datetime import datetime
 async def asyncio_update_db_last_modify_time(collection_name):
     client = await get_database()

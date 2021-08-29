@@ -1,5 +1,11 @@
 from pymongo import MongoClient
-from core.config import MONGODB_URL, DATABASE_NAME, LABEL_COLLECTION, API_PORT, API_HOST
+from core.config import (
+    MONGODB_URL,
+    DATABASE_NAME,
+    LABEL_COLLECTION,
+    API_PORT,
+    API_HOST,
+)
 import json
 import re
 import requests

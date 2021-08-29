@@ -39,7 +39,13 @@ import re
 
 # This is a asyncio status, but just use mongo client directly to save develop time
 from pymongo import MongoClient
-from core.config import MONGODB_URL, DATABASE_NAME, LABEL_COLLECTION, NER_ADAPTERS_PATH, PREDICT_DEVICE
+from core.config import (
+    MONGODB_URL,
+    DATABASE_NAME,
+    LABEL_COLLECTION,
+    NER_ADAPTERS_PATH,
+    PREDICT_DEVICE,
+)
 
 
 def check_adapter_filename_valid(filename):

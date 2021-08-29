@@ -1,6 +1,11 @@
-from core.config import MONGODB_URL, DATABASE_NAME, CONFIG_COLLECTION
+from core.config import (
+    MONGODB_URL,
+    DATABASE_NAME,
+    CONFIG_COLLECTION,
+)
 from pymongo import MongoClient
 from datetime import datetime
+
 def update_db_last_modify_time(collection_name):
     client = MongoClient(MONGODB_URL)
     col = client[DATABASE_NAME][CONFIG_COLLECTION]
