@@ -2,11 +2,11 @@ import os
 import subprocess
 import signal
 import time
-from core.config import MONGODB_URL, DATABASE_NAME, CONFIG_COLLECTION, LABEL_TRAIN_JOB_COLLECTION, API_PORT, API_HOST, API_WORKER, SLEEP_INTERVAL_SECOND, ANACONDA_ENV_NAME, PATH
+from core.config import MONGODB_URL, DATABASE_NAME, CONFIG_COLLECTION, LABEL_TRAIN_JOB_COLLECTION, API_PORT, API_HOST, API_WORKER, SLEEP_INTERVAL_SECOND, ANACONDA_ENV_NAME, PATH, MONGODB_PATH, MONGODB_PORT
 
-MONGODB_HOST = "0.0.0.0"
+MONGODB_HOST = "localhost"
 slient_commands = [
-    #f"mongod --port {MONGODB_PORT} --bind_ip {MONGODB_HOST} --dbpath {MONGODB_PATH}",
+    f"mongod --port {MONGODB_PORT} --bind_ip {MONGODB_HOST} --dbpath {MONGODB_PATH}",
 ]
     
 commands = [

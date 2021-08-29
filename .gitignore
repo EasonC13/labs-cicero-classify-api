@@ -146,3 +146,6 @@ cached_*
 *.tar.gz
 
 save_*
+
+# Ignore MongoDB
+.mongoDB
