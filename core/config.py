@@ -16,12 +16,12 @@ ALLOWED_HOSTS = ["*"]
 
 API_PORT = 16538
 API_HOST = "0.0.0.0"
-API_WORKER = 2
+API_WORKER = 4
 
 DEBUG = False
 
 # MongoDB
-HOST_A_MONGODB = False
+HOST_A_MONGODB = True
 MONGODB_PORT = os.getenv("MONGODB_PORT", 27017)
 MONGODB_HOST = os.getenv("MONGODB_HOST", "localhost")
 MONGODB_USERNAME = os.getenv("MONGO_USER", "")
